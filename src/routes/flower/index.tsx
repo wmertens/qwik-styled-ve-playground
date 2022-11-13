@@ -1,9 +1,37 @@
-import { component$, useClientEffect$, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import {
+  component$,
+  FunctionComponent,
+  useClientEffect$,
+  useStore,
+} from '@builder.io/qwik';
 import { DocumentHead, useLocation } from '@builder.io/qwik-city';
-import styles from './flower.css?inline';
+import { Host, odd, pride, Range, Square } from './flower.css';
+
+type StoredInputProps<
+  T,
+  Cmp extends FunctionComponent,
+  Name extends string = 'value'
+> = Parameters<Cmp>[0] & {
+  store: { [value in Name]?: T };
+  name?: Name;
+};
+
+export const RangeInput = <Name extends string = 'value'>({
+  store,
+  name = 'value' as Name,
+  ...props
+}: StoredInputProps<number, typeof Range, Name>) => (
+  <Range
+    {...props}
+    type="range"
+    value={store[name]}
+    onInput$={(ev) => {
+      store[name] = (ev.target as HTMLInputElement).valueAsNumber;
+    }}
+  />
+);
 
 export default component$(() => {
-  useStylesScoped$(styles);
   const loc = useLocation();
 
   const state = useStore({
@@ -21,34 +49,23 @@ export default component$(() => {
 
   return (
     <>
-      <input
-        type="range"
-        value={state.number}
-        max={50}
-        onInput$={(ev) => {
-          state.number = (ev.target as HTMLInputElement).valueAsNumber;
-        }}
-      />
-      <div
+      <p>This is styled with qwik-styled-ve.</p>
+
+      <RangeInput store={state} name="number" max={50} />
+      <Host
         style={{
           '--state': `${state.count * 0.1}`,
         }}
-        class={{
-          host: true,
-          pride: loc.query['pride'] === 'true',
-        }}
+        className={loc.query['pride'] && pride}
       >
         {Array.from({ length: state.number }, (_, i) => (
-          <div
+          <Square
             key={i}
-            class={{
-              square: true,
-              odd: i % 2 === 0,
-            }}
+            class={{ [odd]: i % 2 === 0 }}
             style={{ '--index': `${i + 1}` }}
           />
         )).reverse()}
-      </div>
+      </Host>
     </>
   );
 });
