@@ -31,7 +31,7 @@ export const Menu = () => (
 
 export default component$(() => {
   return (
-    <Header as="div">
+    <Header>
       <a class={logoLink} href="https://qwik.builder.io/" target="_blank">
         <QwikLogo />
       </a>
