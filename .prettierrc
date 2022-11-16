@@ -1,0 +1,17 @@
+{
+	"arrowParens": "avoid",
+	"bracketSpacing": false,
+	"semi": false,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
+}

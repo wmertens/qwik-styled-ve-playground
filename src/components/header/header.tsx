@@ -1,41 +1,42 @@
-import { Header, logoLink, NavList, NavItem, NavLink } from './header.css';
-import { component$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
+import style, {Header, logoLink, NavList, NavItem, NavLink} from './header.css'
+import {component$, useStyles$} from '@builder.io/qwik'
+import {QwikLogo} from '../icons/qwik'
 
 const menu = [
-  {
-    url: 'https://qwik.builder.io/docs/components/overview/',
-    title: 'Docs',
-  },
-  {
-    url: 'https://qwik.builder.io/examples/introduction/hello-world/',
-    title: 'Examples',
-  },
-  {
-    url: 'https://qwik.builder.io/tutorial/welcome/overview/',
-    title: 'Tutorials',
-  },
-];
+	{
+		url: 'https://qwik.builder.io/docs/components/overview/',
+		title: 'Docs',
+	},
+	{
+		url: 'https://qwik.builder.io/examples/introduction/hello-world/',
+		title: 'Examples',
+	},
+	{
+		url: 'https://qwik.builder.io/tutorial/welcome/overview/',
+		title: 'Tutorials',
+	},
+]
 
 export const Menu = () => (
-  <NavList>
-    {menu.map(({ url, title }) => (
-      <NavItem>
-        <NavLink href={url} target="_blank">
-          {title}
-        </NavLink>
-      </NavItem>
-    ))}
-  </NavList>
-);
+	<NavList>
+		{menu.map(({url, title}) => (
+			<NavItem>
+				<NavLink href={url} target="_blank">
+					{title}
+				</NavLink>
+			</NavItem>
+		))}
+	</NavList>
+)
 
 export default component$(() => {
-  return (
-    <Header>
-      <a class={logoLink} href="https://qwik.builder.io/" target="_blank">
-        <QwikLogo />
-      </a>
-      <Menu />
-    </Header>
-  );
-});
+	useStyles$(style)
+	return (
+		<Header>
+			<a class={logoLink} href="https://qwik.builder.io/" target="_blank">
+				<QwikLogo />
+			</a>
+			<Menu />
+		</Header>
+	)
+})
