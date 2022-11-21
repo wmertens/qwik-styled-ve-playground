@@ -1,5 +1,5 @@
-import {globalStyle} from '@vanilla-extract/css'
-import {css} from 'qwik-styled-ve'
+import {createVar, globalStyle} from '@vanilla-extract/css'
+import {css} from 'styled-vanilla-extract/qwik'
 
 /**
  * WHAT IS THIS FILE?
@@ -9,10 +9,12 @@ import {css} from 'qwik-styled-ve'
  *
  */
 
+export const darkBlue = createVar('dark-blue')
+
 globalStyle(
 	':root',
 	css`
-		--qwik-dark-blue: #006ce9;
+		${darkBlue}: #006ce9;
 		--qwik-light-blue: #18b6f6;
 		--qwik-light-purple: #ac7ff4;
 		--qwik-dark-purple: #713fc2;
@@ -59,7 +61,7 @@ globalStyle(
 	'section',
 	css`
 		padding: 20px;
-		border-bottom: 10px solid var(--qwik-dark-blue);
+		border-bottom: 10px solid ${darkBlue};
 	`
 )
 
@@ -89,7 +91,7 @@ globalStyle(
 globalStyle(
 	'a,a:visited',
 	css`
-		color: var(--qwik-dark-blue);
+		color: ${darkBlue};
 	`
 )
 
