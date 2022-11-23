@@ -3,9 +3,10 @@ import {
 	FunctionComponent,
 	useClientEffect$,
 	useStore,
+	useStyles$,
 } from '@builder.io/qwik'
 import {DocumentHead, useLocation} from '@builder.io/qwik-city'
-import {Host, odd, pride, Range, Square} from './flower.css'
+import style, {Host, odd, pride, Range, Square} from './flower.css'
 
 type StoredInputProps<
 	T,
@@ -32,6 +33,7 @@ export const RangeInput = <Name extends string = 'value'>({
 )
 
 export default component$(() => {
+	useStyles$(style)
 	const loc = useLocation()
 
 	const state = useStore({

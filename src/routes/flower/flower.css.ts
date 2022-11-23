@@ -1,5 +1,7 @@
 import {style, styled} from 'styled-vanilla-extract/qwik'
 
+export default ''
+
 export const pride = style({})
 export const odd = style({})
 
