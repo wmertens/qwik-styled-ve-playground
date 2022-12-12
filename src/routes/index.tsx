@@ -1,12 +1,14 @@
-import {component$} from '@builder.io/qwik'
+import {component$, useStyles$} from '@builder.io/qwik'
 import type {DocumentHead} from '@builder.io/qwik-city'
 import {Link} from '@builder.io/qwik-city'
+import style, {Lightning, Table, mindBlow} from './_index.css'
 
 export default component$(() => {
+	useStyles$(style)
 	return (
 		<div>
 			<h1>
-				Welcome to Qwik <span class="lightning">⚡️</span>
+				Styled-vanilla-express playground <Lightning />
 			</h1>
 
 			<ul>
@@ -14,16 +16,20 @@ export default component$(() => {
 					Check out the <code>src/routes</code> directory to get started.
 				</li>
 				<li>
-					Add integrations with <code>npm run qwik add</code>.
+					There are <code>*.css.ts</code> files in several locations, which
+					contain the CSS definitions.
 				</li>
 				<li>
-					More info about development in <code>README.md</code>
+					The <code>global.css.ts</code> file is imported as "global" CSS in{' '}
+					<code>root.tsx</code>, and the other files use <code>useStyles$</code>{' '}
+					and the default export to add the CSS in a "local"{' '}
+					<code>&lt;style/&gt;</code> tag.
 				</li>
 			</ul>
 
 			<h2>Commands</h2>
 
-			<table class="commands">
+			<Table>
 				<tr>
 					<td>
 						<code>npm run dev</code>
@@ -48,55 +54,7 @@ export default component$(() => {
 					</td>
 					<td>Select an integration to add.</td>
 				</tr>
-			</table>
-
-			<h2>Add Integrations</h2>
-
-			<table class="commands">
-				<tr>
-					<td>
-						<code>npm run qwik add cloudflare-pages</code>
-					</td>
-					<td>
-						<a href="https://developers.cloudflare.com/pages" target="_blank">
-							Cloudflare Pages Server
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run qwik add express</code>
-					</td>
-					<td>
-						<a href="https://expressjs.com/" target="_blank">
-							Nodejs Express Server
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run qwik add netlify-edge</code>
-					</td>
-					<td>
-						<a href="https://docs.netlify.com/" target="_blank">
-							Netlify Edge Functions
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run qwik add static-node</code>
-					</td>
-					<td>
-						<a
-							href="https://qwik.builder.io/qwikcity/static-site-generation/overview/"
-							target="_blank"
-						>
-							Static Site Generation (SSG)
-						</a>
-					</td>
-				</tr>
-			</table>
+			</Table>
 
 			<h2>Community</h2>
 
@@ -121,7 +79,7 @@ export default component$(() => {
 					</a>
 				</li>
 			</ul>
-			<Link class="mindblow" href="/flower">
+			<Link class={mindBlow} href="/flower">
 				Blow my mind 🤯
 			</Link>
 		</div>

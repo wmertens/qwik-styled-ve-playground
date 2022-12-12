@@ -1,20 +1,22 @@
-import {component$, Slot} from '@builder.io/qwik'
+import {component$, Slot, useStyles$} from '@builder.io/qwik'
 import Header from '../components/header/header'
+import style, {Footer, Main, Section} from './layout.css'
 
 export default component$(() => {
+	useStyles$(style)
 	return (
 		<>
-			<main>
+			<Main>
 				<Header />
-				<section>
+				<Section>
 					<Slot />
-				</section>
-			</main>
-			<footer>
+				</Section>
+			</Main>
+			<Footer>
 				<a href="https://www.builder.io/" target="_blank">
 					Made with ♡ by Builder.io
 				</a>
-			</footer>
+			</Footer>
 		</>
 	)
 })
