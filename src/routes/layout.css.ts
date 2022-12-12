@@ -19,10 +19,10 @@ export const Section = styled.section`
 `
 
 export const Footer = styled.footer`
-		padding: 15px;
-		text-align: center;
-		font-size: 0.8em;
-	`
+	padding: 15px;
+	text-align: center;
+	font-size: 0.8em;
+`
 
 globalStyle(
 	`${Footer} a`,
@@ -32,8 +32,8 @@ globalStyle(
 )
 
 globalStyle(
-	'${Footer} a:hover',
+	`${Footer} a:hover`,
 	css`
 		text-decoration: underline;
-`
+	`
 )
