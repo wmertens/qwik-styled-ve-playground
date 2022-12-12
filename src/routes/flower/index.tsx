@@ -58,7 +58,7 @@ export default component$(() => {
 				style={{
 					'--state': `${state.count * 0.1}`,
 				}}
-				className={loc.query['pride'] && pride}
+				class={loc.query['pride'] && pride}
 			>
 				{Array.from({length: state.number}, (_, i) => (
 					<Square

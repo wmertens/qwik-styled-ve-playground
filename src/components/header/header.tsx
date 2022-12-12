@@ -19,8 +19,8 @@ const menu = [
 
 export const Menu = () => (
 	<NavList>
-		{menu.map(({url, title}) => (
-			<NavItem>
+		{menu.map(({url, title}, i) => (
+			<NavItem key={i}>
 				<NavLink href={url} target="_blank">
 					{title}
 				</NavLink>
