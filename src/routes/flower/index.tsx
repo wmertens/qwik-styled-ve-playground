@@ -6,7 +6,7 @@ import {
 	useStyles$,
 } from '@builder.io/qwik'
 import {DocumentHead, useLocation} from '@builder.io/qwik-city'
-import style, {Host, odd, pride, Range, Square} from './flower.css'
+import style, {Ball, Host, odd, pride, Range, Square} from './flower.css'
 
 type StoredInputProps<
 	T,
@@ -60,6 +60,8 @@ export default component$(() => {
 				}}
 				class={loc.query['pride'] && pride}
 			>
+				{' '}
+				<Ball />
 				{Array.from({length: state.number}, (_, i) => (
 					<Square
 						key={i}

@@ -5,6 +5,19 @@ export default ''
 export const pride = style({})
 export const odd = style({})
 
+export const Ball = styled.div`
+	@keyframes move {
+		from {
+			left: 5%;
+		}
+		to {
+			left: 85%;
+		}
+	}
+
+	animation: 1s move;
+`
+
 export const Host = styled.div`
 	display: grid;
 
