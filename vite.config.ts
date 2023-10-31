@@ -7,5 +7,10 @@ import {vanillaExtractPlugin} from 'styled-vanilla-extract/vite'
 export default defineConfig(() => {
 	return {
 		plugins: [qwikCity(), qwikVite(), tsconfigPaths(), vanillaExtractPlugin()],
+		preview: {
+			headers: {
+				'Cache-Control': 'public, max-age=600',
+			},
+		},
 	}
 })

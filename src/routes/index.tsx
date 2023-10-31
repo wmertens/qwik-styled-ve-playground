@@ -30,30 +30,32 @@ export default component$(() => {
 			<h2>Commands</h2>
 
 			<Table>
-				<tr>
-					<td>
-						<code>npm run dev</code>
-					</td>
-					<td>Start the dev server and watch for changes.</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run preview</code>
-					</td>
-					<td>Production build and start preview server.</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run build</code>
-					</td>
-					<td>Production build.</td>
-				</tr>
-				<tr>
-					<td>
-						<code>npm run qwik add</code>
-					</td>
-					<td>Select an integration to add.</td>
-				</tr>
+				<tbody>
+					<tr>
+						<td>
+							<code>npm run dev</code>
+						</td>
+						<td>Start the dev server and watch for changes.</td>
+					</tr>
+					<tr>
+						<td>
+							<code>npm run preview</code>
+						</td>
+						<td>Production build and start preview server.</td>
+					</tr>
+					<tr>
+						<td>
+							<code>npm run build</code>
+						</td>
+						<td>Production build.</td>
+					</tr>
+					<tr>
+						<td>
+							<code>npm run qwik add</code>
+						</td>
+						<td>Select an integration to add.</td>
+					</tr>
+				</tbody>
 			</Table>
 
 			<h2>Community</h2>

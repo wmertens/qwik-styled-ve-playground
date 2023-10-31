@@ -1,17 +1,17 @@
 import {
 	component$,
-	FunctionComponent,
-	useClientEffect$,
+	useVisibleTask$,
 	useStore,
+	type FunctionComponent,
 	useStyles$,
 } from '@builder.io/qwik'
-import {DocumentHead, useLocation} from '@builder.io/qwik-city'
+import {type DocumentHead, useLocation} from '@builder.io/qwik-city'
 import style, {Ball, Host, odd, pride, Range, Square} from './flower.css'
 
 type StoredInputProps<
 	T,
 	Cmp extends FunctionComponent,
-	Name extends string = 'value'
+	Name extends string = 'value',
 > = Parameters<Cmp>[0] & {
 	store: {[value in Name]?: T}
 	name?: Name
@@ -41,7 +41,7 @@ export default component$(() => {
 		number: 20,
 	})
 
-	useClientEffect$(({cleanup}) => {
+	useVisibleTask$(({cleanup}) => {
 		const timeout = setTimeout(() => (state.count = 1), 500)
 		cleanup(() => clearTimeout(timeout))
 
@@ -58,7 +58,7 @@ export default component$(() => {
 				style={{
 					'--state': `${state.count * 0.1}`,
 				}}
-				class={loc.query['pride'] && pride}
+				class={loc.url.searchParams.get('pride') === 'true' && pride}
 			>
 				{' '}
 				<Ball />

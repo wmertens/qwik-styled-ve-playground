@@ -26,19 +26,80 @@ globalStyle(
 )
 
 globalStyle(
-	'body',
+	'html',
 	css`
-		background-color: #fafafa;
-		font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system,
-			BlinkMacSystemFont, sans-serif;
-		padding: 20px 20px 40px 20px;
+		line-height: 1;
+		-webkit-text-size-adjust: 100%;
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+		font-family:
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			Roboto,
+			'Helvetica Neue',
+			Arial,
+			'Noto Sans',
+			sans-serif,
+			'Apple Color Emoji',
+			'Segoe UI Emoji',
+			'Segoe UI Symbol',
+			'Noto Color Emoji';
 	`
 )
 
 globalStyle(
-	'h1,h2',
+	'h1,h2,h3',
 	css`
-		margin: 0 0 5px 0;
+		margin: 0;
+	`
+)
+
+globalStyle(
+	'h1',
+	css`
+		font-size: 3.2rem;
+		text-align: center;
+		@media screen and (min-width: 768px) {
+			font-size: 5rem;
+		}
+	`
+)
+
+globalStyle(
+	'h3',
+	css`
+		font-size: 2rem;
+		@media screen and (min-width: 768px) {
+			font-size: 3rem;
+		}
+	`
+)
+
+globalStyle(
+	'h1 .highlight, h3 .highlight',
+	css`
+		color: ${lightBlue};
+	`
+)
+
+globalStyle(
+	'h2',
+	css`
+		font-weight: 400;
+		font-size: 2.4rem;
+		@media screen and (min-width: 768px) {
+			font-size: 3.4rem;
+		}
+	`
+)
+globalStyle(
+	'h2 .highlight',
+	css`
+		font-weight: 700;
 	`
 )
 
@@ -73,20 +134,24 @@ globalStyle(
 )
 
 globalStyle(
-	'a:hover',
+	'a',
 	css`
 		text-decoration: none;
+		color: var(--qwik-light-blue);
 	`
 )
 
 globalStyle(
 	'code',
 	css`
-		font-family: Menlo, Monaco, Courier New, monospace;
+		font-family:
+			Menlo,
+			Monaco,
+			Courier New,
+			monospace;
 		font-size: 0.9em;
-		background-color: rgb(224, 224, 224);
-		padding: 2px 4px;
-		border-radius: 3px;
-		border-bottom: 2px solid #bfbfbf;
+		background: rgba(230, 230, 230, 0.3);
+		border-radius: 4px;
+		padding: 2px 6px;
 	`
 )
